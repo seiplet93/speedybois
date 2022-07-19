@@ -16,6 +16,13 @@ public class Player : MonoBehaviour
     private int runSpeed = 5;
     public int playerLives = 3;
     public Text playerLivesText;
+    [SerializeField]
+    private AudioClip _coinClip;
+    [SerializeField]
+    private AudioClip _spikeClip;
+    [SerializeField]
+    private AudioClip _resClip;
+    private AudioSource _audioSource;
 
     
     // Animator _animator;
@@ -44,6 +51,9 @@ public class Player : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         if (playerLives < 1)
         {
+            _audioSource = GetComponent<AudioSource>();
+            _audioSource.clip = _resClip;
+            _audioSource.Play();
             FindObjectOfType<GameManager>().EndGame();
             
         }
@@ -88,7 +98,9 @@ public class Player : MonoBehaviour
         
         if (other.gameObject.layer == 7 )
         {
-            
+            _audioSource = GetComponent<AudioSource>();
+            _audioSource.clip = _coinClip;
+            _audioSource.Play();
             Destroy(other.gameObject);
             superJumpsRemaining++;
             runSpeed++;
@@ -98,6 +110,9 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.layer == 8)
         {
+            _audioSource = GetComponent<AudioSource>();
+            _audioSource.clip = _spikeClip;
+            _audioSource.Play();
             playerLives--;
             Destroy(other.gameObject);
             Debug.Log("hit register" + playerLives);

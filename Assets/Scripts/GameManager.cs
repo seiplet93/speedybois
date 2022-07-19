@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
+    [SerializeField]
+    private AudioClip _winClip;
+   
+    private AudioSource _audioSource;
     //public Text time = FindObjectOfType<Timer>().currentTimeText;
 
     public void Start()
@@ -16,6 +20,9 @@ public class GameManager : MonoBehaviour
     }
     public void CompleteLevel()
     {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.clip = _winClip;
+        _audioSource.Play();
         FindObjectOfType<Timer>().StopTimer();
         completeLevelUI.SetActive(true);
         Debug.Log("level won");
@@ -32,6 +39,7 @@ public class GameManager : MonoBehaviour
         if (gameHasEnded == false)
         {
             gameHasEnded = true;
+            
             Debug.Log("GAME OVER");
             Invoke("Restart", restartDelay);
             Restart();
@@ -41,6 +49,7 @@ public class GameManager : MonoBehaviour
     }
     public void Restart()
     {
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
