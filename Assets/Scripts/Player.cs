@@ -7,12 +7,14 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Transform groundCheckTransform = null;
     [SerializeField] private LayerMask playerMask;
+    
 
     private bool jumpKeyWayPressed;
     private float horizontalInput;
     private Rigidbody rigidbodyComponent;
     private int superJumpsRemaining;
     private int runSpeed = 5;
+    public int playerLives = 3;
 
     
     // Animator _animator;
@@ -37,6 +39,11 @@ public class Player : MonoBehaviour
         }
 
         horizontalInput = Input.GetAxis("Horizontal");
+        if (playerLives < 1)
+        {
+            FindObjectOfType<GameManager>().EndGame();
+            
+        }
       
     }
     
@@ -85,6 +92,13 @@ public class Player : MonoBehaviour
             
 
 
+        }
+        if (other.gameObject.layer == 8)
+        {
+            playerLives--;
+            Destroy(other.gameObject);
+            Debug.Log("hit register" + playerLives);
+            
         }
     }
 
