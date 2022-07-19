@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private int superJumpsRemaining;
     private int runSpeed = 5;
     public int playerLives = 3;
+    public Text playerLivesText;
 
     
     // Animator _animator;
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame (based on the rednering speed of users pc) (do checks in here, keydown etc, but no physics)
     void Update()
     {
+        playerLivesText.text = "Lives: " + playerLives.ToString();
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpKeyWayPressed = true;
