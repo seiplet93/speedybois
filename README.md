@@ -1,6 +1,5 @@
-# speedybois
+# Speedybois
 ![Screenshot](./readmeimage/screenshot.png)
-An embedded screenshot of the app
 ## Technologies
 - Unity is the game engine and program I used for developing this game. 
 - The scripts for the player, gamestate, and level objecets were written using Unity's flavor of C#
