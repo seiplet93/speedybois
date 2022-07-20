@@ -1,5 +1,5 @@
 # speedybois
-![Screenshot](./readmeimage)
+![Screenshot](./readmeimage/screenshot.png)
 An embedded screenshot of the app
 ## Technologies
 - Unity is the game engine and program I used for developing this game. 
