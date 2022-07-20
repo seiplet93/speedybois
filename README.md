@@ -22,3 +22,17 @@ As a user, I want to...
 - Need to add multiplayer.
 - Need to add character model and animations.
 - Add High-Scores/personal best times.
+
+## MVP
+- Functioning platforming game with a start and finish line
+- Ability for character to move left and right, as well as jump
+- Display the user's time once the finish line is crossed
+- Have player "lives", Game over if lives reach 0
+
+## Stretch
+- Create environmental hazards
+- Implement multiplayer
+- Create different characters for user's to play as (different speeds, amount of lives)
+- Database storing user's fastest times
+- Add Music
+
